@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head> <link rel="stylesheet" href="matrixCSS.css" /> 
+		<title> Matrix Algebra </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+
+<body>
+	<div id="explaination" class="pageBox"> <center><h2>This page can add, subtract, and multiply matrices. </h2><hr /> 
+		<table id="enterInfo"> 
+			<tr> 
+				<td colspan = 2> Select an operation: </td>
+				<td colspan = 2>
+					<form> 
+						<select id="operation"> 
+							<option value="add">Add</option>
+							<option value="subtract">Subtract</option>
+							<option value="multiply">Multiply</option>
+						</select>
+					</form> 
+				</td>	
+			</tr>
+			<tr>
+				<td> Matrix A size: </td>
+				<td> 
+					<form> 
+						<select id="Arows"> 
+
+						</select>
+					</form> 
+				</td>
+				<td> x </td> 
+				<td> 
+					<form> 
+						<select id="Acols"> 
+
+						</select>
+			</td>
+		</tr>
+			<tr>
+				<td> Matrix B size: </td>
+				<td> 
+					<form> 
+						<select id="Brows"> 
+
+						</select>
+					</form> 
+				</td>
+				<td> x </td> 
+				<td> 
+					<form> 
+						<select id="Bcols"> </select>
+					</form>
+			</td>
+		</tr>
+	</table>		
+	<table> <tr> <td> <div class= "button" id="button1"> Enter Info! </div> </td> <td><div class= "button" id="button2"> Do Math!</div> </td></tr></table>
+</div>
+<hr /> 
+<table id="resultAndWarningBox">
+	<tr>
+		<td>
+			<div id="matrixEntry" class="pageBox"> 
+				<table>
+					<tr> 
+						<td> <div id="matrixDisp1">  </div> </td>
+						<td> <div id="operationSymbol"> </div> </td>
+						<td> <div id="matrixDisp2">  </div> </td>
+						<td> <div id="operationSymbol2">  </div> </td>
+						<td> <div id="result"> </div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+		<td> 
+			<div id="warningBox" class="pageBox"> The following error has occured: <p id="warning"> No error! </p></div>
+		</td>
+	</tr>
+</table>
+
+	<script src="matrixLibrary.js" type="text/javascript"> </script>
+	<script src="matrixPage.js" type="text/javascript"> </script>
+</body>
+
+</html>
