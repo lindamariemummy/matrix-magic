@@ -101,20 +101,24 @@ function doMath(character) {
 	//perform multiplication
 	else {
 		matrixResult = multiplyMatrices(A,B);
+		//console.log(matrixResult);
 		if(!matrixResult)
 		{
 			printError("Error! Product is not defined.");
 		}
+		else {
+
+		}
 	}
 
-//console.log(matrixResult);
+	var equals = document.getElementById("operationSymbol2");
+	equals.innerHTML = "=";
 
-var equals = document.getElementById("operationSymbol2");
-equals.innerHTML = "=";
-
-var result = document.getElementById("result");
-result.innerHTML = printMatrix(matrixResult);
-
+	console.log(matrixResult);
+	if (matrixResult) {
+		var result = document.getElementById("result");
+		result.innerHTML = printMatrix(matrixResult);
+	}
 }
 
 function printError(message)

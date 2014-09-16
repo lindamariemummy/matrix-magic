@@ -46,12 +46,13 @@ function Matrix()
 
 //returns an HTML formatted table containing the matrix A
 function printMatrix(A) {
+	console.log(A);
 	var textString = "<table>";
 
-	for (var i = 0; i <A.getRows(); i++ ) {
+	for (var i = 0; i < A.getRows(); i++ ) {
 		textString += "<tr>";
 		for (var j = 0; j < A.getCols(); j++){
-			textString += "<td>" + A.getEntry(i,j) + "</td>" ;
+			textString += "<td>" + A.matrix[i][j] + "</td>" ;
 		} 
 		textString +="</tr>";
 	}
@@ -66,7 +67,7 @@ function printMatrix(A) {
 //returns AB, false if product is undefined
 function multiplyMatrices(A,B)
 {
-	console.log(A);
+
 	var Arows = A.getRows();
 	var Acols = A.getCols();
 	var Brows = B.getRows();
@@ -86,7 +87,8 @@ function multiplyMatrices(A,B)
 			for (var p = 0 ; p < Acols ; p++) {
 				sum += A.matrix[row][p] * B.matrix[p][col];	
 			} 
-			product[row +col*row] = sum;
+			product[col +Bcols*row] = sum;
+			console.log
 		}
 	}
 
@@ -123,13 +125,16 @@ function addMatrices(A,B) {
 //returns the produce cA, where c is a constant and A is a matrix
 function constMultiply(A, c) {
 	var product = [];
+	var result = new Matrix();
 
 	for (var i =0; i< A.getAllEntries().length; i++) {
-		product[i]=A.getAllEntries()[i];
-		console.log(product[i]);
+		product[i]=A.getAllEntries()[i]*c;
+		//console.log(product[i]);
 	}
 
-	return Matrix(A.getRows(), A.getCols(), product);
+	result.defineMatrix(A.getRows(), A.getCols(), product);
+	
+	return result;
 
 }
 
@@ -142,6 +147,8 @@ function subtractMatrices(A,B) {
 	}
 
 	result = addMatrices(A,constMultiply(B, -1));
+
+	//result.printMatrix();
 
 	return result;
 
