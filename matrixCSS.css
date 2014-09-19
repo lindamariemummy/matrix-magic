@@ -10,7 +10,7 @@
 #explaination {
 	width: 500px;
 	height: 250px;
-	color: blue;
+	color: #8F47B2;
 }
 
 #matrixEntry {
@@ -22,9 +22,9 @@
 .button { 
 	width: 100px;
 	height: 30px;
-	border: 5px solid green;
+	border: 5px solid #8F47B2;
 	margin:10px;
-	color:black;
+	color: black;
 	border-radius: 5px;
 	text-align: center;
 	background-color: white;
@@ -35,11 +35,11 @@
 }
 
 body {
-	background-color: green;
+	background-color: #8F47B2;
 }
 
 #warningBox {
-	color: red;
+	color: black;
 	font-size: 20px;
 	height: 200px;
 	width: 200px;
@@ -48,3 +48,5 @@ body {
 #resultAndWarningBox {
 	margin:auto;
 }
+
+

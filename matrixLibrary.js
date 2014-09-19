@@ -1,25 +1,24 @@
 // matrix object
-function Matrix()
-{
+function Matrix() {
 	this.matrix = [];
 	var numRows = 0;
 	var numCols = 0;
 	var entries = [];
 
-	this.defineMatrix = function(rows,cols,dat) {
+	this.defineMatrix = function(rows, cols, dat) {
 		numRows = rows;
 		numCols = cols;
 		entries = dat;
 
 		//matrix isn't defined!
-		if (numRows*numCols !=dat.length)
+		if (numRows*numCols != dat.length)
 		{	
 			return false;
 		}
 		else
 		{	//splits the data up by row;
-			for (var i=0; i<numRows; i++) {
-				this.matrix[i]=dat.slice(i*numCols, numCols*i+numCols);
+			for (var i = 0; i < numRows; i++) {
+				this.matrix[i] = dat.slice(i*numCols, numCols*i+numCols);
 			}
 
 			return true;
@@ -47,7 +46,7 @@ function Matrix()
 //returns an HTML formatted table containing the matrix A
 function printMatrix(A) {
 	console.log(A);
-	var textString = "<table>";
+	var textString = "<table id='matrixResult'>";
 
 	for (var i = 0; i < A.getRows(); i++ ) {
 		textString += "<tr>";
@@ -63,10 +62,8 @@ function printMatrix(A) {
 
 }
 
-
 //returns AB, false if product is undefined
-function multiplyMatrices(A,B)
-{
+function multiplyMatrices(A, B) {
 
 	var Arows = A.getRows();
 	var Acols = A.getCols();
@@ -99,7 +96,7 @@ function multiplyMatrices(A,B)
 }
 
 //returns A + B, false if sum is undefined
-function addMatrices(A,B) {
+function addMatrices(A, B) {
 
 	var Arows = A.getRows();
 	var Acols = A.getCols();
@@ -113,7 +110,7 @@ function addMatrices(A,B) {
 		return false;
 	}
 	else {
-		for (var i = 0; i< Arows*Acols; i++) {
+		for (var i = 0; i < Arows*Acols; i++) {
 			sumData[i]=parseFloat(A.getAllEntries()[i])+parseFloat(B.getAllEntries()[i]);
 		}
 	}
@@ -127,9 +124,8 @@ function constMultiply(A, c) {
 	var product = [];
 	var result = new Matrix();
 
-	for (var i =0; i< A.getAllEntries().length; i++) {
-		product[i]=A.getAllEntries()[i]*c;
-		//console.log(product[i]);
+	for (var i = 0; i < A.getAllEntries().length; i++) {
+		product[i] = A.getAllEntries()[i]*c;
 	}
 
 	result.defineMatrix(A.getRows(), A.getCols(), product);
@@ -139,17 +135,22 @@ function constMultiply(A, c) {
 }
 
 //returns A - B, false if difference is undefined
-function subtractMatrices(A,B) {
+function subtractMatrices(A, B) {
 	var result = new Matrix();
 
 	if (Arows != Brows || Acols != Bcols) {
 		return false;
 	}
 
-	result = addMatrices(A,constMultiply(B, -1));
-
-	//result.printMatrix();
+	result = addMatrices(A, constMultiply(B, -1));
 
 	return result;
+
+}
+
+//returns the inverse of A, returns false if the inverse in undefined
+function intertMatrix(A) {
+
+
 
 }
